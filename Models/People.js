@@ -7,12 +7,13 @@ People.init(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
     },
   },
-  { sequelize, modelName: 'People', freezeTableName: true }
+  { sequelize, modelName: 'people', freezeTableName: true, timestamps: false }
 );
 
 module.exports = People;

@@ -1,28 +1,13 @@
 const express = require('express');
+const cors = require('cors');
+
+const factory = require('./factory/index');
+
 const server = express();
-const sql = require('mssql');
+server.use(cors());
 
-const people = require('./Models/People');
-
-server.get('/', (req, res) => {
-  res.json({ status: 'ok' });
-});
-
-server.get('/save', async (req, res) => {
-  await sql.connect('mssql://sa:123456@localhost/Sources');
-
-  // const ps = new sql.PreparedStatement();
-  // ps.input('name', sql.VarChar);
-  // ps.prepare('INSERT INTO People(Name) VALUES (@name)', (err) => {
-  //   ps.execute({ name: 'Hugo Leonardo Canducci Dias' }, (err, result) => {
-  //     console.log(result);
-  //   });
-  // });
-
-  const result = await sql.query`select * from People`;
-  res.json(result.recordset);
-});
+factory(server);
 
 server.listen(8989, () => {
-  console.log('Server Up');
+  console.log('Server Up Port 8989 ...');
 });
