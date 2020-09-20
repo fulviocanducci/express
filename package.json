@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mssql": "^6.2.2",
+    "postgres": "^1.0.2",
+    "sequelize": "^6.3.5",
+    "tedious": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "start": "nodemon index.ts"
+  }
+}
